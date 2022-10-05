@@ -2,7 +2,7 @@
   "name": "webpack-first-app",
   "version": "1.0.0",
   "description": "My first app with WebPack. Following the official guide.\r Created by lilKriT.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
