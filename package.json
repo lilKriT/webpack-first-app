@@ -1,0 +1,24 @@
+{
+  "name": "webpack-first-app",
+  "version": "1.0.0",
+  "description": "My first app with WebPack. Following the official guide.\r Created by lilKriT.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilKriT/webpack-first-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilKriT/webpack-first-app/issues"
+  },
+  "homepage": "https://github.com/lilKriT/webpack-first-app#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
