@@ -153,3 +153,12 @@ prefetch - something might be useful later
 preload - will be needed now
 you can use it by adding a comment:
 import(/\* webpackPrefetch: true \*/ "./path/to/something.js");
+
+# caching
+
+use [contenthash] as a substition on your dist files.
+
+code that's not yours can be stored separately (using cacheGroups), as it is not as likely to change.
+(like lodash)
+
+use moduleIds: deterministic to avoid rebuilding vendor modules
