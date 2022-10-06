@@ -144,3 +144,12 @@ chunks: "all",
 
 dynamic imports
 recommended
+no need for the optimization part
+or "dependOn"
+just make async functions
+
+prefetch / preload
+prefetch - something might be useful later
+preload - will be needed now
+you can use it by adding a comment:
+import(/\* webpackPrefetch: true \*/ "./path/to/something.js");
