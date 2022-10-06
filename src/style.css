@@ -1,4 +1,19 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(./Poppins-Regular.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(./Poppins-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
 .hello {
   color: red;
   background-image: url("./icon.png");
+  font-family: "Poppins";
 }
