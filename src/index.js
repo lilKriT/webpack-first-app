@@ -1,5 +1,6 @@
 import _ from "lodash";
 import printMe from "./print";
+import "./another-module";
 
 function component() {
   const element = document.createElement("div");

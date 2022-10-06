@@ -117,3 +117,30 @@ webpack-dev-middleware:
 
 npm i -D express webpack-dev-middleware
 add publicPatch: "/" to webpack config
+
+# code splitting
+
+3 ways:
+entry points - easiest. has issues
+prevent duplication
+dynamic imports
+
+entry points
+have array of entry points
+and output is dynamic
+
+prevent duplication:
+every entry point needs dependOn: "shared"
+and later defined shared
+it also needs optimization chunk single
+
+you can use SplitChunksPlugin too
+
+optimization: {
+splitChunks: {
+chunks: "all",
+},
+},
+
+dynamic imports
+recommended
