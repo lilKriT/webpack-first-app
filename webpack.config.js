@@ -5,7 +5,16 @@ module.exports = {
   // Entry point to the app
   entry: "./src/index.js",
   output: {
-    filename: "main.js", // main.js is default anyway
+    filename: "bundle.js", // main.js is default
     path: path.resolve(__dirname, "dist"),
+  },
+  // This is for adding css
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
 };
