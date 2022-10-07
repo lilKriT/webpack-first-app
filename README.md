@@ -300,3 +300,19 @@ make webpack config
 create index.html and app.js
 Run the server
 `webpack serve --host 0.0.0.0 --client-web-socket-url ws://10.10.10.61:8080/ws --watch-options-poll`
+
+# Dependency management
+
+You can create your own context
+`require.context();`
+`require.context( directory, (useSubDirectories = true), (regExp = /^\.\/.\*$/), (mode = 'sync') )`
+
+example:
+
+```
+function importAll(r) {
+  r.keys().forEach(r);
+}
+
+importAll(require.context('../components/', true, /\.js$/));
+```
