@@ -294,3 +294,9 @@ Content security policy
 # Development - Vagrant
 
 Vagrant is a virtual machine
+Vagrant should have a static IP
+Install `webpack`, `webpack-cli`, `@webpack-cli/serve` and `webpack-dev-server`
+make webpack config
+create index.html and app.js
+Run the server
+`webpack serve --host 0.0.0.0 --client-web-socket-url ws://10.10.10.61:8080/ws --watch-options-poll`
