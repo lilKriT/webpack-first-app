@@ -277,3 +277,20 @@ So add `ForkTsCheckerWebpackPlugin`
 Think if you really need source maps.
 Minimize number of babel plugins.
 Careful with TS.
+
+# Security
+
+## Nonces
+
+You add one to the ENTRY FILE. Not config.
+Example: `__webpack_nonce__ = 'c29tZSBjb29sIHN0cmluZyB3aWxsIHBvcCB1cCAxMjM=';`
+
+## CSP
+
+Content security policy
+
+## Trusted types
+
+# Development - Vagrant
+
+Vagrant is a virtual machine
