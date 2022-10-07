@@ -162,3 +162,24 @@ code that's not yours can be stored separately (using cacheGroups), as it is not
 (like lodash)
 
 use moduleIds: deterministic to avoid rebuilding vendor modules
+
+# authoring libraries
+
+install deps as dev dependencies (to make less bloat)
+bundle it normally
+
+exposing the library
+output: library: "somename"
+type: "umd" - this way it will work in multiple ways (amd, commonjs, script tag)
+then you can reference it using the url in <script>
+
+to make other libraries "peer dependancies":
+`externals: { lodash: { commonjs: 'lodash', commonjs2: 'lodash', amd: 'lodash', root: '\_', } }`
+if you use more than one file:
+either use a regex, or specify array of externals
+
+finally:
+add the proper file as package.json main
+or add it as a module `module: "src/index.js"`
+then you can publish as npm package on unpkg.com
+if it has css, you can add it using MiniCssExtractPlugin
