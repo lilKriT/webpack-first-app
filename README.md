@@ -190,3 +190,90 @@ you can pass them using the `--env` flag
 no value means it's `true`
 you can use them in webpack.config
 to use env vars you need to convert module.exports into a function
+
+# Build performance
+
+Stay up to date
+
+## Loaders
+
+Use minimal number of loaders.
+(for example only use babel loader with `include: path.resolve(_.join(__dirname, 'src'))`)
+
+## Bootstrap (not the styling tool)
+
+Use as few as possible.
+
+## Resolving
+
+Minimize the number of items in `resolve.modules`, `resolve.extensions`, `resolve.mainFiles`, `resolve.descriptionFiles`.
+Set `resolve.symlinks` to `false` if you don't use symlinks like `npm link` or `yarn link`.
+Set `resolve.cacheWithContext: false` if you use custom resolving plugins.
+
+## DLL
+
+Use DllPlugin to move code that doesn't change as often.
+
+## Smaller == faster
+
+Use less libraries
+SplitChunksPlugin
+Remove unused code
+Only compile what you are changing
+
+## Worker Pool
+
+You can offload loaders to worker pools using `thread-loader`
+
+## Persistent cache
+
+Use `cache` option.
+Clear cache on `postinstall`
+
+## Profile custom plugins and loaders
+
+## Remove progress plugin
+
+## In development
+
+### Incremental Builds
+
+Use watch mode.
+
+### Compile in memory
+
+Use `webpack-dev-server`, `webpack-hot-middleware` and `webpack-dev-middleware`.
+
+### Devtool
+
+eval is the fastest
+cheap-source-map and eval-source-map are also good
+
+### Avoid production specific tools
+
+Don't use in development: -`terser-plugin` -`[fullhash]/[chunkhash]/[contenthash]` - `AggressiveSplittingPlugin` - AggressiveMergingPlugin - ModuleConcatenationPlugin
+
+### Minimal Entry Chunk
+
+Use optimization: runtimeChunk: true
+
+### Avoid Extra Optimization steps
+
+Avoid optimization: removeAvailableModules, removeEmptyChunks, splitChunks
+
+### Don't generate path
+
+output: {
+pathinfo: false,
+}
+
+### TypeScript Loader
+
+If using `ts-loader`, use `transpile-only` option. This way you will lose type checking though.
+So add `ForkTsCheckerWebpackPlugin`
+
+## Production
+
+Think if you really need source maps.
+Minimize number of babel plugins.
+Careful with TS.
