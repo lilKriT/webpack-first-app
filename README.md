@@ -316,3 +316,12 @@ function importAll(r) {
 
 importAll(require.context('../components/', true, /\.js$/));
 ```
+
+# Installation
+
+Have NPM installed. Preferrably the LTS version.
+`npm i -D webpack`
+`npm i -D webpack-cli`
+
+build with
+`webpack` or `webpack --config configfile`
