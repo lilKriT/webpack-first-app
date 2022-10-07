@@ -183,3 +183,10 @@ add the proper file as package.json main
 or add it as a module `module: "src/index.js"`
 then you can publish as npm package on unpkg.com
 if it has css, you can add it using MiniCssExtractPlugin
+
+# Enviromental Variables
+
+you can pass them using the `--env` flag
+no value means it's `true`
+you can use them in webpack.config
+to use env vars you need to convert module.exports into a function
