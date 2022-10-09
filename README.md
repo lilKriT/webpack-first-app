@@ -345,3 +345,20 @@ A side effect is code that does something specific when imported (more than just
 If you have side effects, instead of sideEffects: false, provide an array of files with side effects.
 Caution, this will treeshake ALL the files. Including css. Add "\*.css" to the sideEffects.
 You can also add that in module.rules.
+
+`/*#__PURE__*/` will make it easier for webpack to see what can be skipped.
+
+Then, remove usedExports: true and change to production mode
+
+# Production
+
+Differences:
+development: source mapping, live server, HMR
+production: minification, light weight, optimized assets
+
+Best to have separate webpack configs.
+
+You can have common parts in one file, and differences in new files.
+Use webpack-merge to combine them.
+
+Production code is minified automatically.

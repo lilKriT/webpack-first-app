@@ -3,14 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // This is a config I created
 module.exports = (env) => {
-  // You can use env variables here, like:
-  // console.log(env.myvar);
-
   return {
     mode: "development",
     entry: {
       index: "./src/index.js",
-      // print: "./src/print.js",
     },
     devtool: "inline-source-map",
     devServer: {
@@ -27,7 +23,7 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Hot Module Replacement",
+        title: "Production",
       }),
     ],
     output: {
