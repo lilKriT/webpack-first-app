@@ -325,3 +325,9 @@ Have NPM installed. Preferrably the LTS version.
 
 build with
 `webpack` or `webpack --config configfile`
+
+# Hot Module Replacement (HMR)
+
+Should only be used in development, not production.
+HMR is ON by default.
+You can (but don't have to) provide entry points manually.
