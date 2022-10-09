@@ -38,6 +38,7 @@ module.exports = (env) => {
     optimization: {
       moduleIds: "deterministic",
       runtimeChunk: "single",
+      usedExports: true,
       splitChunks: {
         cacheGroups: {
           vendor: {

@@ -1,12 +1,13 @@
 import Print from "./print";
 import "./style.css";
+import { cube } from "./math";
 
 async function getComponent() {
   const element = document.createElement("div");
   const { default: _ } = await import("lodash");
 
   element.innerHTML = _.join(["Hello", "webpacka"], " ");
-  element.onclick = Print.bind(null, "Hello webpack!");
+  element.onclick = Print.bind(null, "Hello webpack!" + cube(3));
 
   return element;
 }

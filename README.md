@@ -331,3 +331,17 @@ build with
 Should only be used in development, not production.
 HMR is ON by default.
 You can (but don't have to) provide entry points manually.
+
+# Tree Shaking
+
+Aka, removing unused code.
+Set mode do development. Set optimization: usedExports: true.
+Also, add
+sideEffects: false
+to package.json
+This way the "dead code" will not get bundled.
+
+A side effect is code that does something specific when imported (more than just exposing a function)
+If you have side effects, instead of sideEffects: false, provide an array of files with side effects.
+Caution, this will treeshake ALL the files. Including css. Add "\*.css" to the sideEffects.
+You can also add that in module.rules.

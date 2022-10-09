@@ -1,5 +1,8 @@
 {
   "name": "webpack-first-app",
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "My first app with WebPack. Following the official guide.\r Created by lilKriT.",
   "private": true,
