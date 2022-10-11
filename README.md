@@ -374,3 +374,29 @@ button.onclick = (e) =>
       print();
     });
 ```
+
+# ECMAScript Modules
+
+It's a specification for writing modules.
+
+You can use `export` keyword.
+
+```
+export let x = 10;
+export function
+```
+
+etc
+`import` to get something from another module.
+
+You have to flag a file as ESM modules.
+In package.json you need type: module for ECMAScript.
+type: commonjs will turn them into CommonJS modules.
+
+You can also use extensions.
+.mjs for ESM
+.cjs for CommonJS
+
+Or using text/javascript or application/javascript in the URI MIME type.
+
+For HMR with modules, you will need to switch module.hot with import.meta.webpackHot
