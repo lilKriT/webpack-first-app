@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // This is a config I created
@@ -24,6 +25,9 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         title: "Production",
+      }),
+      new webpack.ProvidePlugin({
+        _: "lodash",
       }),
     ],
     output: {

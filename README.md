@@ -400,3 +400,31 @@ You can also use extensions.
 Or using text/javascript or application/javascript in the URI MIME type.
 
 For HMR with modules, you will need to switch module.hot with import.meta.webpackHot
+
+# Shimming
+
+You can use
+
+```
+plugins" [
+  webpack.ProvidePlugin({
+    _: "lodash"
+  })
+]
+```
+
+This means: if you see \_ used anywhere, provide lodash
+
+or you can go more specific:
+`join: ["lodash", "join"]`
+This way tree shaking will be even better.
+
+Sometimes you rely on `this` being the window.
+However, modules might consider the module `this`
+To fix that:
+
+```
+modules: rules:
+  test: require.resolve('./src/index.js'),
+  use: 'imports-loader?wrapper=window'
+```
