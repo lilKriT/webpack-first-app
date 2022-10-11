@@ -362,3 +362,15 @@ You can have common parts in one file, and differences in new files.
 Use webpack-merge to combine them.
 
 Production code is minified automatically.
+
+# Lazy Loading
+
+Something like this:
+
+```
+button.onclick = (e) =>
+    import(/* webpackChunkName: "print" */ "./print").then((module) => {
+      const print = module.default;
+      print();
+    });
+```
