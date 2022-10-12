@@ -1,13 +1,14 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 // This is a config I created
 module.exports = (env) => {
   return {
     mode: "development",
     entry: {
-      index: "./src/index.ts",
+      index: "./src/index.js",
     },
     devtool: "inline-source-map",
     devServer: {
@@ -32,10 +33,14 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Production",
+        title: "PWA",
       }),
       new webpack.ProvidePlugin({
         _: "lodash",
+      }),
+      new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true,
       }),
     ],
     output: {

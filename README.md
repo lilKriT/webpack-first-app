@@ -505,3 +505,20 @@ self.onmessage = ({ data: { question } }) => {
   });
 };
 ```
+
+# Progressive Web Apps (PWA)
+
+Apps that look and feel like desktop apps. They can even work offline.
+The way to achieve it is service workers.
+
+`npm i -D http-server`
+script: start: http-server dist
+`npm i -D workbox-webpack-plugin`
+add this plugin:
+
+```
+new WorkboxPlugin.GenerateSW({
+  clientsClaim: true,
+  skipWaiting: true,
+}),
+```
