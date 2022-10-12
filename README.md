@@ -428,3 +428,53 @@ modules: rules:
   test: require.resolve('./src/index.js'),
   use: 'imports-loader?wrapper=window'
 ```
+
+# TypeScript
+
+`npm i -D typescript ts-loader`
+
+create tsconfig.json in root and index.ts in /src
+
+```
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node"
+    }
+}
+```
+
+add module rules
+
+````
+{
+  test: /\.tsx?$/,
+  use: "ts-loader",
+  exclude: /node_modules/,
+},```
+````
+
+add resolve:
+
+```
+resolve: {
+  extensions: [".tsx", ".ts", ".js"],
+},
+```
+
+for a sourcemap:
+`sourceMap: true` in the tsconfig.
+
+To import other types of assets you need a file `custom.d.ts`
+
+```
+declare module '*.svg' {
+  const content: any;
+  export default content;
+}
+```

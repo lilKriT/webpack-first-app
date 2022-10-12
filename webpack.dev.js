@@ -7,7 +7,7 @@ module.exports = (env) => {
   return {
     mode: "development",
     entry: {
-      index: "./src/index.js",
+      index: "./src/index.ts",
     },
     devtool: "inline-source-map",
     devServer: {
@@ -20,7 +20,15 @@ module.exports = (env) => {
           test: /\.css$/,
           use: ["style-loader", "css-loader"],
         },
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
       ],
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"],
     },
     plugins: [
       new HtmlWebpackPlugin({
