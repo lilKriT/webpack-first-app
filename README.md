@@ -522,3 +522,26 @@ new WorkboxPlugin.GenerateSW({
   skipWaiting: true,
 }),
 ```
+
+# Public Path
+
+Try the environment variable, otherwise use root
+`const ASSET_PATH = process.env.ASSET_PATH || '/';`
+
+And add a plugin:
+
+```
+new webpack.DefinePlugin({
+  'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+}),
+```
+
+You can also use it on the fly:
+`__webpack_public_path__ = process.env.ASSET_PATH;`
+
+To set automatic public path:
+
+```output: {
+  publicPath: "auto"
+}
+```
