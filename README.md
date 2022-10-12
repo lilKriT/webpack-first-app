@@ -478,3 +478,30 @@ declare module '*.svg' {
   export default content;
 }
 ```
+
+# Web Workers
+
+You used to need worker-loader, but not since webpack 5.
+
+`new Worker(new URL('./worker.js', import.meta.url));`
+
+Example:
+
+```
+const worker = new Worker(new URL('./deep-thought.js', import.meta.url));
+worker.postMessage({
+  question:
+    'The Answer to the Ultimate Question of Life, The Universe, and Everything.',
+});
+worker.onmessage = ({ data: { answer } }) => {
+  console.log(answer);
+};
+```
+
+```
+self.onmessage = ({ data: { question } }) => {
+  self.postMessage({
+    answer: 42,
+  });
+};
+```
