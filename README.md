@@ -545,3 +545,17 @@ To set automatic public path:
   publicPath: "auto"
 }
 ```
+
+# Integrations
+
+grunt - use grunt webpack.
+npm i -D grunt-webpack
+
+gulp
+npm i -D webpack-stream
+
+mocha
+npm i -D mocha mocha-webpack
+
+karma
+npm i -D karma karma-webpack
