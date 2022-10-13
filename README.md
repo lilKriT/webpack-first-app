@@ -559,3 +559,40 @@ npm i -D mocha mocha-webpack
 
 karma
 npm i -D karma karma-webpack
+
+# Asset modules
+
+It's a type of module that allows you to use a file type without an additional loader.
+
+4 asset module types:
+asset/resource (previously file loader)
+asset/inline (previously url-loader)
+asset/source (previously raw-loader)
+asset (either data or url)
+
+in a module add:
+`type: javascript/auto`
+to avoid duplication of assets (if you use old asset loader and the asset module at the same time, it could be possible that assets are processed twice)
+
+You can also exclude assets from URL calls using:
+module: rules: dependency: {not: ['url']},
+
+default file name is [hash][ext][query], you can change it
+output: assetFilename: 'images/[hash][ext][query]'
+you can make them go to a specific folder:
+module: rules: {
+test:/\.html/,
+type: "asset/resource",
+generator: {
+filename: "static/[hash][ext][query]"
+}
+}
+
+if you want the assets to be inlined, instead of above code just use
+`type: asset/inline`
+then you can use them like: `url(${assetname})`
+
+generators can use functions.
+
+If you don't want to emit assets, add:
+generator: { emit: false}
